@@ -26,22 +26,7 @@ A **Django-based web app** for monitoring network devices in real-time. Built wi
 
 ---
 
-## 🗂 Project Structure
-
-simple-device-monitor/
-│
-├── devices/ # Django app (views, models, templates)
-│ └── templates/
-│ └── devices/
-│ └── dashboard.html
-│
-├── Dockerfile # Docker image config
-├── docker-compose.yml # For running app + services
-├── manage.py # Django CLI entry point
-├── requirements.txt # Python dependencies
-├── .env # Environment variables
-└── static/ # Static files (CSS, JS, etc.)
-
+<pre> ## 📁 Project Structure ``` simple-device-monitor/ ├── devices/ # Django app (views, models, templates) │ ├── templates/ │ │ └── devices/ │ │ └── dashboard.html │ ├── models.py │ ├── views.py │ ├── urls.py │ ├── admin.py │ └── ... ├── monitor/ # Django project settings ├── static/ # Static files (CSS, JS, images) ├── Dockerfile # Docker image config ├── docker-compose.yml # For running app + services ├── requirements.txt # Python dependencies ├── .env # Environment variables └── manage.py # Django CLI entry point ``` </pre>
 
 
 ---

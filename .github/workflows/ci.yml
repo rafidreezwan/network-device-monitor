@@ -27,5 +27,6 @@ jobs:
     - name: Run tests
       env:
         DB_NAME: ":memory:"
+        USE_SQLITE_FOR_TESTS: "1"
       run: |
         python manage.py test

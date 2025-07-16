@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Monitor</title>
+
+  <!-- ✅ Local Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  
+  <!-- ✅ Local Bootstrap JS -->
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body class="bg-dark text-light">
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">🌐 Network Devices</h2>
+
+    <table class="table table-bordered table-hover table-dark shadow-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>IP</th>
+          <th>Status</th>
+          <th>Last Checked</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for device in devices %}
+        <tr>
+          <td>{{ device.name }}</td>
+          <td>{{ device.ip_address }}</td>
+          <td>
+            {% if device.status == "Active" %}
+              <span class="badge bg-success">Active</span>
+            {% elif device.status == "Inactive" %}
+              <span class="badge bg-danger">Inactive</span>
+            {% else %}
+              <span class="badge bg-secondary">Unknown</span>
+            {% endif %}
+          </td>
+          <td>{{ device.last_checked }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-center">No devices found</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
